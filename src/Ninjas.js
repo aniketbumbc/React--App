@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 class Ninjas extends Component{
     render(){
-        console.log(this.props);
-        const {Name,Age,Color} = this.props;
-        return(
-            <div className="ninjas">
-    <div>Name: {Name}</div>
-        <div>Age:{Age}</div>
-            <div>Color:{Color}</div>
+       
+        const ninjas = this.props.ninjas;
+
+        console.log("log here", ninjas);
+
+
+
+        const ninjasList = ninjas.map(ninja=>{
+            return (
+            <div className="ninjas" key={ninja.id}> 
+            <div>Name: {ninja.Name}</div>
+            <div>Age:{ninja.Age}</div>
+            <div>Color:{ninja.Color} </div> 
             </div>
+            )
+        })
+        return(
+            <div>
+                {ninjasList}
+            </div>
+   
+           
         ) 
     }
 }
