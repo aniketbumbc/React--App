@@ -4,7 +4,6 @@
 import React from 'react';
 const  Ninjas = (props)=>{ 
         const ninjas = props.ninjas;
-        // console.log("log here", ninjas);
         const ninjasList = ninjas.map(ninja=>{
             if(ninja.Age > 30){
             return (
