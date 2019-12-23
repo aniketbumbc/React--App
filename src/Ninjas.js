@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-class Ninjas extends Component{
-    render(){
-       
-        const ninjas = this.props.ninjas;
+//UI comopnent made by function only UI purpose no state and class
+//other container componet which has state and class ( app.  js)
 
-        console.log("log here", ninjas);
-
-
-
+import React from 'react';
+const  Ninjas = (props)=>{ 
+        const ninjas = props.ninjas;
+        // console.log("log here", ninjas);
         const ninjasList = ninjas.map(ninja=>{
+            if(ninja.Age > 30){
             return (
             <div className="ninjas" key={ninja.id}> 
             <div>Name: {ninja.Name}</div>
@@ -16,15 +14,16 @@ class Ninjas extends Component{
             <div>Color:{ninja.Color} </div> 
             </div>
             )
+            }else{
+                return null;
+            }
         })
         return(
             <div>
                 {ninjasList}
-            </div>
-   
-           
+            </div>        
         ) 
-    }
+
 }
 
 export default Ninjas
