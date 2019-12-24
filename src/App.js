@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import Ninjas from './Ninjas';
 import Addninjas from './Addninjas';
-
-
-
-
 class App extends Component{
   state ={
     ninjas:[
@@ -13,13 +9,24 @@ class App extends Component{
       {Name: "Keveee", Age:"58",Color:"Pink",id:3}
     ]
   }
+
+  addNinjas = (ninja) =>{
+    ninja.id = Math.floor(Math.random() * 100);
+    let ninjas =[...this.state.ninjas,ninja]; //copy speread operator,add new ele 
+    //not editing state directly outside setstate. 
+    //always chage state inside setState.
+    this.setState({
+      ninjas: ninjas
+    })
+  }
+
   render(){
   return(
     <div className="App">
     <h1>First React Project</h1>
     <p>Welcome To react world</p>
     <Ninjas ninjas={this.state.ninjas}/>  <br/>
-    <Addninjas/>
+    <Addninjas addNinjas = {this.addNinjas}/>
     </div>
   );
 }
