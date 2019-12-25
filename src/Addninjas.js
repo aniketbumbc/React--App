@@ -17,21 +17,26 @@ handleChange =(e)=>{
 handleSubmit = (e)=>{
     e.preventDefault();
     this.props.addNinjas(this.state);
+    this.mainInput.value = "";
+    this.mainName.value = "";
+    this.mainAge.value = "";
 }
-
 
 render(){
     return(
         <div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} >
                 <label htmlFor="name"> Name:  </label>
-                <input type ="text" id="Name" onChange={this.handleChange}/>
+                <input  ref={(ref) => this.mainName= ref}                
+                type ="text" id="Name" onChange={this.handleChange}/>
 
                 <label htmlFor="age"> Age:  </label>
-                <input type ="text" id="Age" onChange={this.handleChange}/>
+                <input ref={(ref) => this.mainAge= ref} 
+                type ="text" id="Age" onChange={this.handleChange}/>
 
                 <label htmlFor="color"> Color:  </label>
-                <input type ="text" id="Color" onChange={this.handleChange}/>
+                <input ref={(ref) => this.mainInput= ref} 
+                 type ="text" id="Color" onChange={this.handleChange}/>
                 <br/>
                 <br/>
                 <br/>

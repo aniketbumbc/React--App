@@ -4,7 +4,7 @@
 import React from 'react';
 const  Ninjas = (props)=>{ 
         const ninjas = props.ninjas;
-        console.log(ninjas);
+        const deleninjas = props.deleteNinjas;
         const ninjasList = ninjas.map(ninja=>{
             if(ninja.Age > 30){
             return (
@@ -12,6 +12,7 @@ const  Ninjas = (props)=>{
             <div>Name: {ninja.Name}</div>
             <div>Age:{ninja.Age}</div>
             <div>Color:{ninja.Color} </div> 
+            <button onClick= { () => {deleninjas(ninja.id)}} >Delete Ninja </button>
             </div>
             )
             }else{
